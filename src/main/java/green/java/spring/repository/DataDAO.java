@@ -95,4 +95,27 @@ public class DataDAO {
 
 	}
 	
+public void deleteData(String id){
+	    
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    
+	    try {
+	        conn = getConnection();
+	        
+	        String sql = "delete from springprac where id = '"+id+"';";
+
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.executeUpdate();
+
+	       
+	    }
+	    catch (SQLException e) {
+	    	e.printStackTrace();
+	    }finally {
+	    	
+	    }
+
+	}
+	
 }

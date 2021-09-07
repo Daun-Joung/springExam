@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.spring.vo.SpringPracDTO;
 
@@ -49,6 +50,16 @@ public class HelloController {
 	public String insertdata(@ModelAttribute SpringPracDTO vo,Model model) { // modelAttribute - jsp페이지에서 input submit으로 넘어온 모든 값들을 받아 올 때 사용하는 annotation 반드시 input의 이름들과 dto의 이름을 맞춰주어야 한다.
 		
 		datadao.insertData(vo);
+		
+		List<SpringPracDTO> list = datadao.getList();
+		model.addAttribute("dblist",list);
+		return "/WEB-INF/file/dbprint.jsp";
+	}
+	
+	@RequestMapping("/deletedata")
+	public String deletedata(@RequestParam String id,Model model) {
+		
+		datadao.deleteData(id);
 		
 		List<SpringPracDTO> list = datadao.getList();
 		model.addAttribute("dblist",list);

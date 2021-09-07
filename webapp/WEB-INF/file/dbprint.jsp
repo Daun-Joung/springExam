@@ -25,7 +25,7 @@ for(int i=0; i<list.size(); i++){
 	<div><%=list.get(i).getGender()%></div>
 	<div><%=list.get(i).getEmail()%></div>
 	<div><%=list.get(i).getCellnum()%></div>
-	<div><input type="button" name="deletebtn" value="삭제"></div>
+	<div><a href="/springExam/deletedata?&id=<%=list.get(i).getId()%>"><input type="button" name="deletebtn" value="삭제"></a></div>
 
 		<%
 }
