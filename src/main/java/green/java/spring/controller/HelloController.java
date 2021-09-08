@@ -51,18 +51,37 @@ public class HelloController {
 		
 		datadao.insertData(vo);
 		
-		List<SpringPracDTO> list = datadao.getList();
-		model.addAttribute("dblist",list);
-		return "/WEB-INF/file/dbprint.jsp";
+		/*String direction = list(model);*/
+		
+		/*List<SpringPracDTO> list = datadao.getList();
+		model.addAttribute("dblist",list);*/
+		return "/index"; // 이렇게 페이지간 이동을 모두 매핑된것으로 사용하는 것이 중요하다 !!
 	}
 	
 	@RequestMapping("/deletedata")
 	public String deletedata(@RequestParam String id,Model model) {
 		
 		datadao.deleteData(id);
+		/*String direction = list(model);*/
+		/*List<SpringPracDTO> list = datadao.getList();
+		model.addAttribute("dblist",list);*/
+		return "/index";
+	}
+	
+	@RequestMapping("/updateform")
+	public String updateform(@RequestParam String id,Model model) {
+		List<SpringPracDTO> list = datadao.getList(id);
+		model.addAttribute("dblist", list);
+		return "/WEB-INF/file/dbUpdate.jsp";
+	}
+	
+	
+	@RequestMapping("/updatedata")
+	public String updatedata(@ModelAttribute SpringPracDTO vo) {
 		
-		List<SpringPracDTO> list = datadao.getList();
-		model.addAttribute("dblist",list);
-		return "/WEB-INF/file/dbprint.jsp";
+		datadao.updateData(vo);
+		
+		return "/index";
+		
 	}
 }

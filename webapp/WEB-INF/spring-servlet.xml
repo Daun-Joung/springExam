@@ -14,4 +14,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:annotation-config />
 	<context:component-scan  base-package="green.java.spring.controller" />
+	
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler /> <!-- 정적자원: 매핑없이 실행되는 자원(css, js 등) 즉 이런 자원들은 디스패처 서블릿이 먼저 읽는 것이 아니라 웹서버가 먼저 읽을 수 있도록 설정해주는 것  -->
 </beans>

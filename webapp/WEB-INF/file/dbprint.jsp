@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+	<img src="/springExam/res/img/pic1.jpg"/>
 <%
 
 List<SpringPracDTO> list = (List<SpringPracDTO>)request.getAttribute("dblist"); // controller에서는 model로 줬어도 받을때는 request로 받는
@@ -28,11 +28,13 @@ for(int i=0; i<list.size(); i++){
 	<div>
 	<a href="/springExam/deletedata?&id=<%=list.get(i).getId()%>"><input type="button" name="deletebtn" value="삭제"></a>
 	<a href="/springExam/insert"><input type="button" name="insertbtn" value="등록"></a>
-	
+	<a href="/springExam/updateform?id=<%=list.get(i).getId()%>"><input type="button" name="updatebtn" value="수정"></a>
 	</div>
 
 		<%
 }
 %>
+
+<!--  http://localhost:8080/springExam/ 웹 구동시 최초의 url은 wabapp이다. -->
 </body>
 </html>
