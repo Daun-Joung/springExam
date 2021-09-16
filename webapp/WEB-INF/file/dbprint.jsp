@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<img src="/springExam/res/img/pic1.jpg"/>
+	<img src="/springExam/res/img/pic1.jpg" style="width: 100px; height: 100px; object-fit: cover;"/>
 <%
 
 List<SpringPracDTO> list = (List<SpringPracDTO>)request.getAttribute("dblist"); // controller에서는 model로 줬어도 받을때는 request로 받는
